@@ -70,7 +70,6 @@ def solve2(input: list) -> int:
             lowest_seat_id = seat_id
     seat_ids_set = set(seat_ids)
 
-    print(f'highest={highest_seat_id}, lowest={lowest_seat_id}')  # FIXME:
     for seat_id in range(int(lowest_seat_id) + 1, int(highest_seat_id) - 1):
         if seat_id not in seat_ids_set:
             return seat_id

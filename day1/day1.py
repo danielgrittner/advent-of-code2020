@@ -25,7 +25,6 @@ def solve_for_two(input: list) -> int:
 
 
 def solve_for_three(input: list) -> int:
-    # TODO:
     available_nums = set(input)
     processed = set()
 

@@ -67,8 +67,6 @@ def check_password2(pw_config: dict) -> bool:
     index2 = pw_config['max'] - 1
     is_second_set = pw_config['password'][index2] == pw_config['char']
     out = (is_first_set and not is_second_set) or (not is_first_set and is_second_set)
-    print(f'pw={pw_config["password"]}, index1={index1}, index2={index2}')
-    print(f'c={pw_config["char"]} min={pw_config["password"][index1]} max={pw_config["password"][index2]} => {out}')
     return out
 
 def solve2(input: list):

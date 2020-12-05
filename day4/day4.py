@@ -106,9 +106,7 @@ def read_input(path: str) -> list:
                 break
             
             if line == '\n' or line == '':
-                print("About to add some stuff!") # FIXME:
                 out.append(Passport(next_batch_file))
-                print(out[-1])  # FIXME:
                 next_batch_file = ''
             else:
                 next_batch_file += ' ' +  line[:-1]
