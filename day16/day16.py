@@ -112,19 +112,16 @@ def solve2(constraints: list, my_ticket: list, nearby_tickets: list) -> int:
   constraint_order = [deepcopy(constraints) for _ in range(len(my_ticket))]
 
   # Now, we need to filter out the invalid constraints for a position
-  fixed_constraints = set()  # Fixed constraints are constraints which are the only ones left for a certain position
   for ticket in valid_tickets:
     for i in range(len(constraint_order)):
       constraint_order[i] = list(filter(lambda constraint: constraint.matches_constraint(ticket[i]), constraint_order[i]))
-      if len(constraint_order[i]) == 1:
-        fixed_constraints.add(constraint_order[i][0].name)
   
   cmp = lambda item1, item2: len(constraint_order[item1]) - len(constraint_order[item2])
   index_map = list(range(len(constraint_order)))
   index_map = sorted(index_map, key=cmp_to_key(cmp))
   
   # If there are multiple constraints for a position available, we remove the fixed constraints
-  fixed_constraints = set()
+  fixed_constraints = set()  # Fixed constraints are constraints which are the only ones left for a certain position
   for i in index_map:
     if len(constraint_order[i]) > 1:
       constraint_order[i] = list(filter(lambda c: c.name not in fixed_constraints, constraint_order[i]))
